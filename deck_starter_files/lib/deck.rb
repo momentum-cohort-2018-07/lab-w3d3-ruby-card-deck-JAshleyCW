@@ -2,11 +2,37 @@ require_relative "card"
 
 class Deck
 
+    attr_accessor :cards
+
     def initialize
-        #needs to 52 cards
+        # need 52 cards, from Card class, put in array cards []
+        # need to know rank and suit
+        @ranks = [:A, 2, 3, 4, 5, 6, 7, 8, 9, 10, :J, :Q, :K]
+        @suits = [:clubs, :diamonds, :hearts, :spades]
         @cards = []
-        #need 52 to Cards (from card class) to an array
-        52.times{@cards.push(Card.new(:A, :spades))}
+        # for each rank and suit, loop through and push each to card array
+        @suits.each do |suit|
+            @ranks.each do |rank|
+                @cards << Card.new(rank, suit)
+            end
+        end
+    
+    def cards_left
+        @cards.length
+    end
+
+    def draw
+        @cards.shift
+    end
+
+    def shuffle
+        @cards.shuffle!
+    end
+
+    
+
+
+
     end
 
 

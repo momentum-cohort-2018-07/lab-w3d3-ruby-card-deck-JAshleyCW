@@ -26,4 +26,10 @@ class Card
         self.value > other_card.value
     end
 
+    def ==(other_card)
+        rank == other_card.rank &&
+        suit == other_card.suit
+    end
+
+
 end
